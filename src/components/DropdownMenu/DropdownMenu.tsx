@@ -150,7 +150,8 @@ const DropdownMenu: React.FC<DropdownMenuProps> & DropdownMenuComponents = ({
 
   const handleClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
     e.stopPropagation();
-    handleOpen();
+
+    isOpen ? close() : handleOpen();
   };
 
   // Prevent content from closing after clicking on none-interactive items
