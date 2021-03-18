@@ -5,6 +5,7 @@ const App = () => {
   const dropdownContent = (
     <DropdownMenu.Items>
       <DropdownMenu.Item>Pretty long long long long item #1</DropdownMenu.Item>
+
       <DropdownMenu.Item>
         <a href="/#">Link works too</a>
       </DropdownMenu.Item>
