@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { DropdownMenu } from './components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const dropdownContent = (
+    <DropdownMenu.Items>
+      <DropdownMenu.Item>Pretty long long long long item #1</DropdownMenu.Item>
+      <DropdownMenu.Item>
+        <a href="/#">Link works too</a>
+      </DropdownMenu.Item>
+
+      <DropdownMenu.Item>
+        <div onClick={() => alert('Callback')}>Click me</div>
+      </DropdownMenu.Item>
+    </DropdownMenu.Items>
   );
-}
 
-export default App;
+  return (
+    <DropdownMenu.Provider>
+      <main className="main">
+        <DropdownMenu
+          className="main__trigger main__trigger--top-left"
+          content={dropdownContent}
+        >
+          <button>Top left</button>
+        </DropdownMenu>
+
+        <DropdownMenu
+          className="main__trigger main__trigger--top-right"
+          content={dropdownContent}
+        >
+          <button>Top right</button>
+        </DropdownMenu>
+
+        <DropdownMenu
+          className="main__trigger main__trigger--bottom-right"
+          content={dropdownContent}
+        >
+          <button>Bottom right</button>
+        </DropdownMenu>
+
+        <DropdownMenu
+          className="main__trigger main__trigger--bottom-left"
+          content={dropdownContent}
+        >
+          <button>Bottom left</button>
+        </DropdownMenu>
+      </main>
+    </DropdownMenu.Provider>
+  );
+};
+
+export { App };
